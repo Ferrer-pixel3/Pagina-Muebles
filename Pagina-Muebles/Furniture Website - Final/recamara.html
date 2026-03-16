@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recámaras | Muebles Ferrer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="productos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-top">
+        <div class="logo"><i class="fa-solid fa-couch"></i><span id="logo-title">MUEBLES</span></div>
+        <div class="search-bar"><input id="search-input" type="text" placeholder="¿Qué estás buscando?" /><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="user">
+          <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+          <span id="cart-total">$0.00</span>
+          <i class="fa-regular fa-heart" id="fav-icon"></i>
+          <i class="fa-solid fa-user" id="profile-icon"></i>
+        </div>
+      </div>
+      <div class="nav-list">
+        <a href="index.html"><i class="fa-solid fa-house"></i><span>INICIO</span></a>
+        <a href="productos.html"><i class="fa-solid fa-couch"></i><span>PRODUCTOS</span></a>
+        <a href="precios.html"><i class="fa-solid fa-dollar-sign"></i><span>PRECIOS</span></a>
+        <a href="blog.html"><i class="fa-brands fa-blogger"></i><span>BLOG</span></a>
+        <a href="ofertas.html"><i class="fa-solid fa-star"></i><span>OFERTAS</span></a>
+        <a href="contacto.html"><i class="fa-solid fa-message"></i><span>CONTACTO</span></a>
+      </div>
+    </nav>
+
+    <section class="products">
+      <div class="products-top">
+        <h3>RECÁMARAS</h3>
+        <h2>COLECCIÓN</h2>
+        <h1>RECÁMARAS DISPONIBLES</h1>
+      </div>
+      <!-- Sección destacada basada en product-1 -->
+      
+      <div class="products-grid">
+        <div class="product-feature" data-id="101">
+          <img src="images/recamara A.jpg" alt="Recámara A" />
+          <div>
+            <h4>Recámara A</h4>
+            <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="pf-desc">Madera maciza, cabecera acolchada y cajonera.</p>
+            <p class="pf-price">$5,200</p>
+          </div>
+        </div>
+
+        <div class="product-feature" data-id="102">
+          <img src="images/recamara B.jpg" alt="Recámara B" />
+          <div>
+            <h4>Recámara B</h4>
+            <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+            <p class="pf-desc">Estilo moderno con terminados en nogal.</p>
+            <p class="pf-price">$6,100</p>
+          </div>
+        </div>
+
+        <div class="product-feature" data-id="103">
+          <img src="images/recamara C.jpg" alt="Recámara C" />
+          <div>
+            <h4>Recámara C</h4>
+            <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></div>
+            <p class="pf-desc">Diseño minimalista, ideal para espacios pequeños.</p>
+            <p class="pf-price">$4,800</p>
+          </div>
+        </div>
+
+        <div class="product-feature" data-id="104">
+          <img src="images/recamara D.jpeg" alt="Recámara D" />
+          <div>
+            <h4>Recámara D</h4>
+            <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="pf-desc">Acabado premium y herrajes metálicos.</p>
+            <p class="pf-price">$7,300</p>
+          </div>
+        </div>
+
+        <div class="product-feature" data-id="105">
+          <img src="images/recamara E.jpg" alt="Recámara E" />
+          <div>
+            <h4>Recámara E</h4>
+            <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+            <p class="pf-desc">Buena relación calidad-precio con gran almacenamiento.</p>
+            <p class="pf-price">$5,900</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="copyright"><p>&copy; 2025 Muebles Ferrer. Todos los derechos reservados.</p></div>
+      <div class="brand"><i class="fa-solid fa-couch"></i><h1>MUEBLES</h1></div>
+    </footer>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

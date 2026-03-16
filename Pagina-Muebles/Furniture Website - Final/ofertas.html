@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ofertas | Muebles Ferrer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="productos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- ✅ NAVBAR COMPLETO -->
+    <nav class="navbar">
+      <div class="navbar-top">
+        <div class="logo">
+          <i class="fa-solid fa-couch"></i>
+          <span id="logo-title">MUEBLES</span>
+        </div>
+        <div class="search-bar">
+          <input id="search-input" type="text" placeholder="¿Qué estás buscando?" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="user">
+          <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+          <span id="cart-total">$0.00</span>
+          <i class="fa-regular fa-heart" id="fav-icon"></i>
+          <i class="fa-solid fa-user" id="profile-icon"></i>
+        </div>
+      </div>
+      <div class="nav-list">
+        <a href="index.html"><i class="fa-solid fa-house"></i><span>INICIO</span></a>
+        <a href="productos.html"><i class="fa-solid fa-couch"></i><span>PRODUCTOS</span></a>
+        <a href="precios.html"><i class="fa-solid fa-dollar-sign"></i><span>PRECIOS</span></a>
+        <a href="blog.html"><i class="fa-brands fa-blogger"></i><span>BLOG</span></a>
+        <a href="ofertas.html"><i class="fa-solid fa-star"></i><span>OFERTAS</span></a>
+        <a href="contacto.html"><i class="fa-solid fa-message"></i><span>CONTACTO</span></a>
+      </div>
+    </nav>
+
+    <section class="products" id="ofertas" style="margin-bottom: 5rem;">
+      <div class="products-top">
+        <h3 style="font-size: 1.8rem; color: #999; letter-spacing: 0.3rem; margin-bottom: 0.5rem; font-weight: 400;">PROMOCIONES ESPECIALES</h3>
+        <h2 style="font-size: 5rem; color: #f8872b; margin-bottom: 0; font-weight: 700;">DESCUENTOS</h2>
+        <h1 style="font-size: 4.5rem; color: #073e72; margin-top: 0; font-weight: 700; letter-spacing: 0.2rem;">OFERTAS EXCLUSIVAS</h1>
+      </div>
+      <div id="ofertas-list" class="pricing-cards" style="max-width: 1400px; margin-left: auto; margin-right: auto;">
+        <!-- Oferta 1: Recámara D con 25% descuento -->
+        <div class="pricing-card product-feature oferta-badge" data-id="104" data-desc="Recámara amplia con acabados premium y herrajes metálicos. Diseño elegante con gran espacio de almacenamiento. Estructuras reforzadas para máxima durabilidad." data-descuento="25%">
+          <img src="images/recamara D.jpeg" alt="Recámara D" />
+          <div>
+            <h4>Recámara D</h4>
+            <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <div style="display: flex; gap: 1rem; align-items: center; margin: 0.8rem 0; justify-content: center;">
+              <span style="font-size: 1rem; color: #999; text-decoration: line-through;">$7,300</span>
+              <span style="font-size: 1.6rem; color: #d32f2f; font-weight: 700;">$5,475</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oferta 2: Sofá C con 20% descuento -->
+        <div class="pricing-card product-feature oferta-badge" data-id="403" data-desc="Sofá seccional con diseño actual y tela resistente. Cómodo para toda la familia con estructura reforzada. Fácil de limpiar y mantener." data-descuento="20%">
+          <img src="images/sofa C.jpg" alt="Sofá C" />
+          <div>
+            <h4>Sofá C</h4>
+            <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <div style="display: flex; gap: 1rem; align-items: center; margin: 0.8rem 0; justify-content: center;">
+              <span style="font-size: 1rem; color: #999; text-decoration: line-through;">$3,600</span>
+              <span style="font-size: 1.6rem; color: #d32f2f; font-weight: 700;">$2,880</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oferta 3: Comedor D con 15% descuento -->
+        <div class="pricing-card product-feature oferta-badge" data-id="304" data-desc="Juego de comedor completo con mesa extensible y sillas tapizadas. Acabados premium y diseño sofisticado. Perfecto para reuniones familiares." data-descuento="15%">
+          <img src="images/comedor D.jpg" alt="Comedor D" />
+          <div>
+            <h4>Comedor D</h4>
+            <div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <div style="display: flex; gap: 1rem; align-items: center; margin: 0.8rem 0; justify-content: center;">
+              <span style="font-size: 1rem; color: #999; text-decoration: line-through;">$5,000</span>
+              <span style="font-size: 1.6rem; color: #d32f2f; font-weight: 700;">$4,250</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ FOOTER -->
+    <footer class="footer">
+      <div class="copyright">
+        <p>&copy; 2025 Muebles Ferrer. Todos los derechos reservados.</p>
+      </div>
+      <div class="brand">
+        <i class="fa-solid fa-couch"></i>
+        <h1>MUEBLES</h1>
+      </div>
+    </footer>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

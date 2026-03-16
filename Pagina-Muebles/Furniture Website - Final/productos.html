@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos | Muebles Ferrer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="productos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <style>
+    .category { cursor: pointer; display: inline-block; text-align: center; padding: 8px; margin: 6px; }
+    .category.selected { outline: 3px solid #f39c12; border-radius: 8px; }
+    .products-grid { display:flex; flex-wrap:wrap; gap:20px; margin-top:30px; justify-content: center; max-width: 1400px; margin-left: auto; margin-right: auto; }
+    .product-card { width:185px; border:1px solid #e8e8e8; padding:14px; border-radius:8px; text-align:center; background:#fff; box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.08); transition: all 0.3s ease; }
+    .product-card:hover { box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.15); transform: translateY(-4px); background: #f9f9f9; }
+    .product-card.hidden { display:none; }
+    .product-card img { width: 100%; height: 120px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
+    .product-card h4 { font-size: 1.3rem; color: #073e72; margin: 8px 0; font-weight: 600; line-height: 1.3; }
+    .product-card p { font-size: 1.1rem; margin: 6px 0; }
+    .product-card .price { font-size: 1.6rem; color: #f8872b; font-weight: 700; display: block; margin: 10px 0; }
+    .product-card button { width: 100%; padding: 10px 0; margin: 5px 0; font-size: 1rem; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; }
+    .product-card .add-cart { background: #f8872b; color: #fff; }
+    .product-card .add-cart:hover { background: #073e72; transform: translateY(-2px); }
+    .product-card .add-fav { background: #e8e8e8; color: #073e72; margin-top: 3px; }
+    .product-card .add-fav:hover { background: #d32f2f; color: #fff; }
+  </style>
+    .product-card button { width: 100%; padding: 8px 0; margin: 4px 0; font-size: 1.1rem; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; }
+    .product-card .add-cart { background: #f8872b; color: #fff; }
+    .product-card .add-cart:hover { background: #073e72; }
+    .product-card .add-fav { background: #e8e8e8; color: #073e72; }
+    .product-card .add-fav:hover { background: #d32f2f; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ✅ NAVBAR COMPLETO -->
+    <nav class="navbar">
+      <div class="navbar-top">
+        <div class="logo">
+          <i class="fa-solid fa-couch"></i>
+          <span id="logo-title">MUEBLES</span>
+        </div>
+        <div class="search-bar">
+          <input id="search-input" type="text" placeholder="¿Qué estás buscando?" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="user">
+          <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+          <span id="cart-total">$0.00</span>
+          <i class="fa-regular fa-heart" id="fav-icon"></i>
+          <i class="fa-solid fa-user" id="profile-icon"></i>
+        </div>
+      </div>
+      <div class="nav-list">
+        <a href="index.html"><i class="fa-solid fa-house"></i><span>INICIO</span></a>
+        <a href="productos.html"><i class="fa-solid fa-couch"></i><span>PRODUCTOS</span></a>
+        <a href="precios.html"><i class="fa-solid fa-dollar-sign"></i><span>PRECIOS</span></a>
+        <a href="blog.html"><i class="fa-brands fa-blogger"></i><span>BLOG</span></a>
+        <a href="ofertas.html"><i class="fa-solid fa-star"></i><span>OFERTAS</span></a>
+        <a href="contacto.html"><i class="fa-solid fa-message"></i><span>CONTACTO</span></a>
+      </div>
+    </nav>
+
+    <!-- ✅ SECCIÓN DE PRODUCTOS -->
+    <section class="products" id="productos">
+      <div class="products-top">
+        <h3>CATÁLOGO</h3>
+        <h2>DESCUBRE</h2>
+        <h1>NUESTROS PRODUCTOS</h1>
+      </div>
+      <div class="products-icons">
+        <a href="recamara.html" class="category" data-category="recamara"><img src="images/bedroom.png" /><span>Recámara</span></a>
+        <a href="buffet.html" class="category" data-category="buffet"><img src="images/buffet.png" /><span>Buffet</span></a>
+        <a href="comedor.html" class="category" data-category="comedor"><img src="images/dining.png" /><span>Comedor</span></a>
+        <a href="sofa.html" class="category" data-category="sofa"><img src="images/sofa.png" /><span>Sofá</span></a>
+        <a href="mesa.html" class="category" data-category="mesa"><img src="images/table.png" /><span>Mesa</span></a>
+        <a href="ropero.html" class="category" data-category="ropero"><img src="images/wardrobe.png" /><span>Ropero</span></a>
+      </div>
+
+      <!-- Productos de ejemplo -->
+      <div id="products-list" class="products-grid">
+        <div class="product-card" data-id="101">
+          <img src="https://www.shutterstock.com/image-illustration/farmhouse-style-bedroommockup-poster-frame-600nw-2424248733.jpg" alt="Recámara A" style="width:100%;height:120px;object-fit:cover;" />
+          <h4>Recamara Principal</h4>
+          <p><span class="price">$5,200</span></p>
+          <button class="add-cart">Agregar al carrito</button>
+          <button class="add-fav">Favorito</button>
+        </div>
+        <div class="product-card" data-id="102">
+          <img src="https://planner5d.com/blog/content/images/2024/04/decoracion.de.dormitorios.47.jpg" alt="Recámara B" style="width:100%;height:120px;object-fit:cover;" />
+          <h4>Recámara Matrimonial</h4>
+          <p><span class="price">$6,100</span></p>
+          <button class="add-cart">Agregar al carrito</button>
+          <button class="add-fav">Favorito</button>
+        </div>
+        <div class="product-card" data-id="401">
+          <img src="https://sofacentervalencia.com/imagenes/enzo-chais-para-web.jpg" alt="Sofá A" style="width:100%;height:120px;object-fit:cover;" />
+          <h4>Sofá Familiar</h4>
+          <p><span class="price">$3,200</span></p>
+          <button class="add-cart">Agregar al carrito</button>
+          <button class="add-fav">Favorito</button>
+        </div>
+        <div class="product-card" data-id="301">
+          <img src="https://www.shutterstock.com/image-illustration/corner-view-home-kitchen-interior-600nw-2536323725.jpg" alt="Comedor A" style="width:100%;height:120px;object-fit:cover;" />
+          <h4>Comedor Tradicional</h4>
+          <p><span class="price">$4,500</span></p>
+          <button class="add-cart">Agregar al carrito</button>
+          <button class="add-fav">Favorito</button>
+        </div>
+        <div class="product-card" data-id="601">
+          <img src="https://maderasgavilan.com/wp-content/uploads/2024/07/closets_de_melamina.jpg" alt="Ropero A" style="width:100%;height:120px;object-fit:cover;" />
+          <h4>Ropero Principal</h4>
+          <p><span class="price">$2,800</span></p>
+          <button class="add-cart">Agregar al carrito</button>
+          <button class="add-fav">Favorito</button>
+        </div>
+        <div class="product-card" data-id="201">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQUocu540-ZDGuzeCFATyNx9GshKH2mB96GQ&s" alt="Buffet A" style="width:100%;height:120px;object-fit:cover;" />
+          <h4>Buffet Habitacional</h4>
+          <p><span class="price">$1,900</span></p>
+          <button class="add-cart">Agregar al carrito</button>
+          <button class="add-fav">Favorito</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ FOOTER -->
+    <footer class="footer">
+      <div class="copyright">
+        <p>&copy; 2025 Muebles Ferrer. Todos los derechos reservados.</p>
+      </div>
+      <div class="brand">
+        <i class="fa-solid fa-couch"></i>
+        <h1>MUEBLES</h1>
+      </div>
+    </footer>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

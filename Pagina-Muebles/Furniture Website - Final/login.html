@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Iniciar sesión | Muebles Ferrer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script>const CONFIG = { API_URL: 'http://127.0.0.1:3001/api' };</script>
+</head>
+<body>
+  <div class="auth-wrapper">
+    <form id="login-form" class="auth-card">
+      <h2><i class="fas fa-sign-in-alt"></i> Iniciar sesión</h2>
+      <label for="login-email">Correo electrónico</label>
+      <input id="login-email" type="email" placeholder="correo@ejemplo.com" required />
+      <label for="login-password">Contraseña</label>
+      <input id="login-password" type="password" placeholder="Tu contraseña" required />
+      <button type="button" id="login-btn">Entrar</button>
+      <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('login-btn').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      
+      if (!email || !password) {
+        alert('Por favor completa todos los campos');
+        return;
+      }
+
+      const loginBtn = document.getElementById('login-btn');
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Entrando...';
+
+      try {
+        const response = await fetch(`${CONFIG.API_URL}/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (data.ok) {
+          alert('¡Bienvenido ' + (data.user && data.user.name ? data.user.name : 'Usuario') + '!');
+          window.location.href = 'index.html';
+        } else {
+          alert('Error: ' + (data.error || 'Credenciales inválidas'));
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Entrar';
+        }
+      } catch (err) {
+        console.error('Error:', err);
+        alert('Error de conexión. Verifica que el servidor esté activo.');
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Entrar';
+      }
+    });
+
+    // Permitir envío con Enter
+    document.getElementById('login-password').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        document.getElementById('login-btn').click();
+      }
+    });
+  </script>
+</body>
+</html>

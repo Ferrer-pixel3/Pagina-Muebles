@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Login | Muebles Ferrer</title>
+  <link rel="stylesheet" href="style.css">
+  <script>const CONFIG = { API_URL: 'http://127.0.0.1:3001/api' };</script>
+  <style>
+    .admin-note{margin-top:1rem;color:#666;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="auth-wrapper">
+    <form id="admin-login" class="auth-card">
+      <h2><i class="fas fa-user-shield"></i> Ingreso Administrador</h2>
+      <label for="admin-email">Correo electrónico</label>
+      <input id="admin-email" type="email" placeholder="admin@ferrer.com" required />
+      <label for="admin-password">Contraseña</label>
+      <input id="admin-password" type="password" placeholder="Contraseña" required />
+      <button type="button" id="admin-login-btn">Entrar como admin</button>
+      <p class="admin-note">Usa tu cuenta de administrador para acceder al panel de control.</p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('admin-login-btn').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('admin-email').value.trim();
+      const password = document.getElementById('admin-password').value;
+      if (!email || !password) return alert('Completa todos los campos');
+      const btn = document.getElementById('admin-login-btn');
+      btn.disabled = true; btn.textContent = 'Entrando...';
+      try {
+        const res = await fetch(`${CONFIG.API_URL}/login`, { method: 'POST', headers: {'Content-Type':'application/json'}, credentials: 'include', body: JSON.stringify({ email, password }) });
+        const data = await res.json();
+        if (!res.ok) { alert('Error: ' + (data.error || 'Credenciales inválidas')); btn.disabled=false; btn.textContent='Entrar como admin'; return; }
+        if (data.user && data.user.role === 'admin') {
+          window.location.href = 'admin.html';
+        } else {
+          alert('La cuenta no tiene permisos de administrador');
+          btn.disabled=false; btn.textContent='Entrar como admin';
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Error de conexión con el servidor');
+        btn.disabled=false; btn.textContent='Entrar como admin';
+      }
+    });
+  </script>
+</body>
+</html>

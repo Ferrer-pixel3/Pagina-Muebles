@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muebles Ferrer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Mukta:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    .pricing-cards > a { text-decoration: none; }
+    .pricing-cards > a .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.15); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-top">
+        <div class="logo">
+          <i class="fa-solid fa-couch"></i>
+          <span id="logo-title">MUEBLES</span>
+        </div>
+        <div class="search-bar">
+          <input id="search-input" type="text" placeholder="¿Qué estás buscando?" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="user">
+          <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+          <span id="cart-total">$0.00</span>
+          <i class="fa-regular fa-heart" id="fav-icon"></i>
+          <i class="fa-solid fa-user" id="profile-icon"></i>
+        </div>
+      </div>
+     <nav class="nav-list">
+  <a href="index.html"><i class="fa-solid fa-house"></i><span>INICIO</span></a>
+  <a href="productos.html"><i class="fa-solid fa-couch"></i><span>PRODUCTOS</span></a>
+  <a href="precios.html"><i class="fa-solid fa-dollar-sign"></i><span>PRECIOS</span></a>
+  <a href="blog.html"><i class="fa-brands fa-blogger"></i><span>BLOG</span></a>
+  <a href="ofertas.html"><i class="fa-solid fa-star"></i><span>OFERTAS</span></a>
+  <a href="contacto.html"><i class="fa-solid fa-message"></i><span>CONTACTO</span></a>
+</nav>
+    </nav>
+
+        <!-- Landing -->
+    <section class="landing" id="inicio">
+      <div class="landing-bg"></div>
+      <div class="banner">
+        <div class="carousel-container">
+          <img src="images/banner-img.jpg" class="banner-img carousel-image" alt="Banner Muebles Ferrer" />
+        </div>
+        <h1 class="banner-heading">MUEBLES DE LUJO</h1>
+        <button type="button" class="banner-btn banner-btn-1">IR A LA TIENDA</button>
+        <button type="button" class="banner-btn banner-btn-2">EXPLORAR</button>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="currentSlide(0)"></span>
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="productos">
+      <div class="products-top">
+        <h3>BUSCA ENTRE</h3>
+        <h2>15000</h2>
+        <h1>PRODUCTOS</h1>
+      </div>
+      <div class="products-icons">
+        <a href="recamara.html" class="category" data-category="recamara">
+          <img src="images/bedroom.png" alt="Ícono recámara" />
+          <span>Recámara</span>
+        </a>
+        <a href="buffet.html" class="category" data-category="buffet">
+          <img src="images/buffet.png" alt="Ícono buffet" />
+          <span>Buffet</span>
+        </a>
+        <a href="comedor.html" class="category" data-category="comedor">
+          <img src="images/dining.png" alt="Ícono comedor" />
+          <span>Comedor</span>
+        </a>
+        <a href="sofa.html" class="category" data-category="sofa">
+          <img src="images/sofa.png" alt="Ícono sofá" />
+          <span>Sofá</span>
+        </a>
+        <a href="mesa.html" class="category" data-category="mesa">
+          <img src="images/table.png" alt="Ícono mesa" />
+          <span>Mesa</span>
+        </a>
+        <a href="ropero.html" class="category" data-category="ropero">
+          <img src="images/wardrobe.png" alt="Ícono ropero" />
+          <span>Ropero</span>
+        </a>
+      </div>
+    </section>
+
+        <!-- Pricing -->
+    <section class="pricing" id="precios">
+      <div class="pricing-top">
+        <img src="images/furniture2.png" />
+        <div class="pricing-top-content">
+          <h1>PREPÁRATE PARA NAVIDAD</h1>
+          <button>TENDENCIAS ACTUALES</button>
+        </div>
+      </div>
+      <div class="pricing-cards">
+        <a href="product-1.html" style="text-decoration: none; color: inherit;">
+          <div class="pricing-card product-card" data-id="101" style="cursor: pointer;">
+            <div class="pricing-card-icons">
+              <i class="fa-solid fa-link"></i>
+              <i class="fa-regular fa-heart add-fav"></i>
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+            <div class="img-wrapper">
+              <img src="individual/individual A.webp" alt="Recámara Principal" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem;" />
+            </div>
+            <h3>Silla Suave</h3>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h4>$5,200</h4>
+          </div>
+        </a>
+
+        <a href="product-2.html" style="text-decoration: none; color: inherit;">
+          <div class="pricing-card product-card" data-id="102" style="cursor: pointer;">
+            <div class="pricing-card-icons">
+              <i class="fa-solid fa-link"></i>
+              <i class="fa-regular fa-heart add-fav"></i>
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+            <div class="img-wrapper">
+              <img src="individual/individual B.webp" alt="Recámara Matrimonial" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem;" />
+            </div>
+            <h3>Television HD</h3>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <h4>$6,100</h4>
+          </div>
+        </a>
+
+        <a href="product-3.html" style="text-decoration: none; color: inherit;">
+          <div class="pricing-card product-card" data-id="401" style="cursor: pointer;">
+            <div class="pricing-card-icons">
+              <i class="fa-solid fa-link"></i>
+              <i class="fa-regular fa-heart add-fav"></i>
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+            <div class="img-wrapper">
+              <img src="individual/individual C.jpg" alt="Sofá Familiar" style="width:100%;height:150px;object-fit:cover;border-radius:0.5rem;" />
+            </div>
+            <h3>Cabezera</h3>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h4>$3,200</h4>
+          </div>
+        </a>
+      </div>
+      <button>IR A LA TIENDA</button>
+    </section>
+
+    <!-- Blog -->
+    <section class="blog" id="blog">
+      <div class="blog-content">
+        <div class="blog-top">
+          <div class="magazine">
+            <img src="images/magazine.png" />
+          </div>
+          <div class="trends">
+            <h1>TENDENCIAS DE INVIERNO 2025</h1>
+            <button>DESCARGAR</button>
+          </div>
+        </div>
+        <div class="blog-articles">
+          <div class="article">
+            <span>01</span>
+            <span>Lorem ipsum dolor sit amet</span>
+          </div>
+          <div class="article">
+            <span>02</span>
+            <span>Lorem ipsum dolor sit amet</span>
+          </div>
+          <div class="article">
+            <span>03</span>
+            <span>Lorem ipsum dolor sit amet</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ofertas -->
+    <section class="pricing offers-section" id="ofertas">
+      <div class="pricing-top">
+        <img src="images/furniture2.png" alt="Decoración ofertas" />
+        <div class="pricing-top-content">
+          <h1>HAY OFERTAS ESPECIALES REVISA NUESTROS DESCUENTOS</h1>
+          <a href="ofertas.html"><button>VER DESCUENTOS</button></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+      <div class="contact-content">
+        <div class="content-left">
+          <h2>Suscríbete a nuestro boletín y recibe <span>30% DE DESCUENTO</span></h2>
+        </div>
+        <div class="content-right">
+          <input type="email" placeholder="Tu correo electrónico..." />
+          <button>REGISTRARSE</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="copyright">
+        <p>&copy; Todos los derechos reservados 2025. Creado por Code And Create</p>
+      </div>
+      <div class="brand">
+        <i class="fa-solid fa-couch"></i>
+        <h1>MUEBLES</h1>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </div>
+</body>
+</html>

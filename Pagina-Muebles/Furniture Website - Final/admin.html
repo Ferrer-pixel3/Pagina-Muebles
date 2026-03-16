@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Muebles Ferrer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+      font-family: 'Mukta', sans-serif;
+      min-height: 100vh;
+    }
+
+    .admin-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .admin-navbar {
+      background: linear-gradient(135deg, #073e72 0%, #0b3954 100%);
+      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(7, 62, 114, 0.15);
+      margin-bottom: 2rem;
+    }
+
+    .admin-navbar h1 {
+      color: #fff;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .admin-navbar h1 i {
+      color: #f8872b;
+      font-size: 2.2rem;
+    }
+
+    .admin-nav-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .admin-nav-actions a,
+    .admin-nav-actions button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .admin-nav-actions a {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .admin-nav-actions a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    #logout {
+      background-color: #f8872b;
+      color: #fff;
+    }
+
+    #logout:hover {
+      background-color: #e67a1a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(248, 135, 43, 0.3);
+    }
+
+    .admin-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .admin-card h2 {
+      color: #073e72;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .admin-card h2 i {
+      color: #f8872b;
+      font-size: 2rem;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .admin-table thead {
+      background: linear-gradient(135deg, #073e72 0%, #0b3954 100%);
+      color: #fff;
+    }
+
+    .admin-table th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.05rem;
+      border-bottom: 2px solid #f8872b;
+    }
+
+    .admin-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #e9edf1;
+      color: #073e72;
+    }
+
+    .admin-table tbody tr {
+      transition: all 0.25s ease;
+    }
+
+    .admin-table tbody tr:hover {
+      background-color: #f9fafb;
+    }
+
+    .admin-table tbody tr:hover td {
+      color: #0b3954;
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .admin-actions button {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 0.4rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .admin-actions .btn-view {
+      background-color: #073e72;
+      color: #fff;
+    }
+
+    .admin-actions .btn-view:hover {
+      background-color: #0b3954;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(7, 62, 114, 0.2);
+    }
+
+    .admin-actions .btn-edit {
+      background-color: #f8872b;
+      color: #fff;
+    }
+
+    .admin-actions .btn-edit:hover {
+      background-color: #e67a1a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(248, 135, 43, 0.2);
+    }
+
+    .admin-actions .btn-delete {
+      background-color: #d32f2f;
+      color: #fff;
+    }
+
+    .admin-actions .btn-delete:hover {
+      background-color: #b71c1c;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(211, 47, 47, 0.2);
+    }
+
+    .admin-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-modal.active {
+      display: flex;
+    }
+
+    .admin-modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .admin-modal-content h3 {
+      color: #073e72;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .admin-modal-content .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .admin-modal-content label {
+      display: block;
+      color: #073e72;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .admin-modal-content input,
+    .admin-modal-content textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #e9edf1;
+      border-radius: 0.4rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #073e72;
+      transition: all 0.2s ease;
+    }
+
+    .admin-modal-content input:focus,
+    .admin-modal-content textarea:focus {
+      outline: none;
+      border-color: #f8872b;
+      box-shadow: 0 0 0 3px rgba(248, 135, 43, 0.1);
+      background-color: #fafbfc;
+    }
+
+    .admin-modal-content textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .admin-modal-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+
+    .admin-modal-actions button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .admin-modal-actions .btn-cancel {
+      background-color: #e9edf1;
+      color: #073e72;
+    }
+
+    .admin-modal-actions .btn-cancel:hover {
+      background-color: #d0d8e0;
+      transform: translateY(-1px);
+    }
+
+    .admin-modal-actions .btn-save {
+      background-color: #f8872b;
+      color: #fff;
+    }
+
+    .admin-modal-actions .btn-save:hover {
+      background-color: #e67a1a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(248, 135, 43, 0.3);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: #999;
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      color: #d0d8e0;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .admin-wrapper {
+        padding: 1rem;
+      }
+
+      .admin-navbar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .admin-navbar h1 {
+        font-size: 1.5rem;
+      }
+
+      .admin-nav-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .admin-table {
+        font-size: 0.85rem;
+      }
+
+      .admin-table th,
+      .admin-table td {
+        padding: 0.7rem 0.5rem;
+      }
+
+      .admin-actions {
+        flex-direction: column;
+      }
+
+      .admin-actions button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .admin-modal-content {
+        width: 95%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-wrapper">
+    <div class="admin-navbar">
+      <h1><i class="fas fa-cog"></i>Panel de Administración</h1>
+      <div class="admin-nav-actions">
+        <a href="index.html"><i class="fas fa-home"></i> Ir al sitio</a>
+        <button id="logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <h2><i class="fas fa-shopping-bag"></i>Compras Recientes</h2>
+      <table class="admin-table" id="purchases-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Comprador</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Ubicación</th>
+            <th>Total</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="empty-purchases" class="empty-state" style="display:none;">
+        <i class="fas fa-inbox"></i>
+        <p>No hay compras registradas</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para ver/editar compra -->
+  <div class="admin-modal" id="purchase-modal">
+    <div class="admin-modal-content">
+      <h3>Detalles de Compra</h3>
+      <div class="form-group">
+        <label>ID de Compra</label>
+        <input type="text" id="modal-purchase-id" readonly style="background:#f5f7fa;">
+      </div>
+      <div class="form-group">
+        <label>Usuario ID</label>
+        <input type="text" id="modal-user-id" readonly style="background:#f5f7fa;">
+      </div>
+      <div class="form-group">
+        <label>Nombre del Comprador</label>
+        <input type="text" id="modal-buyer-name">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="modal-buyer-email">
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" id="modal-buyer-phone">
+      </div>
+      <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" id="modal-buyer-address">
+      </div>
+      <div class="form-group">
+        <label>Ubicación</label>
+        <input type="text" id="modal-buyer-location">
+      </div>
+      <div class="form-group">
+        <label>Total</label>
+        <input type="text" id="modal-total-amount" readonly style="background:#f5f7fa;">
+      </div>
+      <div class="form-group">
+        <label>Notas (opcional)</label>
+        <textarea id="modal-notes" placeholder="Añade notas sobre esta compra..."></textarea>
+      </div>
+      <div class="admin-modal-actions">
+        <button class="btn-cancel" onclick="closePurchaseModal()"><i class="fas fa-times"></i> Cancelar</button>
+        <button class="btn-save" onclick="savePurchaseChanges()"><i class="fas fa-save"></i> Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
